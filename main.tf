@@ -168,5 +168,5 @@ resource "incapsula_cache_response_headers" "cacheheaders" {
 # Cache Mode (no cache, static_only, static_and_dynamic, and aggressive)
 resource "incapsula_cache_mode" "cacheMode" {
   site_id    = "${incapsula_site.site.id}"
-  cache_mode = "aggressive"
+  cache_mode = "static_only"
 }
