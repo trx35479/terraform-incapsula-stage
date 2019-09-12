@@ -1,0 +1,12 @@
+.terraform*
+credentials.json
+terraform.tfvars
+terraform.tfstate*
+tls/*
+.idea
+node_modules
+.venv
+
+*.backend
+*.tfvars
+**.Python
