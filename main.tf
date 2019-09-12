@@ -170,3 +170,15 @@ resource "incapsula_cache_mode" "cacheMode" {
   site_id    = "${incapsula_site.site.id}"
   cache_mode = "static_only"
 }
+
+resource "incapsula_cache_rule" "no-cache" {
+  site_id                 = "${incapsula_site.site.id}"
+  name                    = "x-min-v-nocache"
+  action                  = "HTTP_CACHE_FORCE_UNCACHEABLE"
+  filter                  = "HeaderExists == \"x-min-v\""
+  enabled                 = "true"
+  depends_on              = [
+    "incapsula_cache_rule.cache-rule-filter",
+    "incapsula_cache_rule.cache-rule-diff"
+  ]
+}
